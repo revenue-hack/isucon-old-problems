@@ -1,4 +1,9 @@
 # vagrant-isucon/isucon7-qualifier-standalone
+## vagrant box
+https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box
+```
+vagrant box add isucon-7-s https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box
+```
 
 ## Overview
 
@@ -25,13 +30,32 @@ cd ${DIR}/bench
 gb vendor restore
 make
 cd ${DIR}/webapp/go
+make
 ./isubata &
 ```
 
 ## bench
-```
 sudo -i -u isucon
-cd /home/isucon/isubata/bench
-./bin/bench -remotes=127.0.0.1 -output result.json
 ```
+sudo sh bench.sh ${OUTPUT_JSON_NAME}
+```
+
+## kataribe
+```
+cat /var/log/nginx/access.log |./kataribe -f kataribe.toml
+```
+
+## nginx
+```
+nginx -t -c /etc/nginx/sites-enabled/nginx.conf
+```
+
+## netdata
+```
+sudo apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
+git clone https://github.com/firehol/netdata.git --depth=1
+cd netdata
+./netdata-installer.sh --dont-wait --install /tmp
+```
+http://168.192.33.10:19999
 
