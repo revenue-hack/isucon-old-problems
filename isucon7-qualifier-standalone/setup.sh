@@ -6,7 +6,8 @@ if [ -d ${DIR} ]; then
   sudo rm -rf ${DIR} 2> /dev/null
 fi
 sudo unlink ${DIR} 2> /dev/null
-sudo ln -s /home/isucon/shared/isubata /home/isucon
+sudo ln -s /home/vagrant/shared/isubata ${DIR}
+sudo chown -Rh isucon:isucon /home/isucon
 
 echo "nginx set up"
 NGINX_DIR_AV="/etc/nginx/sites-available"

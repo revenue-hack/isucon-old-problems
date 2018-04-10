@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = box
 
-  config.vm.synced_folder "./", "/home/isucon/shared", owner: "isucon", group: "isucon"
+  config.vm.synced_folder "./", "/home/isucon/shared", owner: "vagrant", group: "vagrant"
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
